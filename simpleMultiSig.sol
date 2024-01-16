@@ -12,7 +12,7 @@ contract multiSig is ERC20 {
     }
 
     struct wallet {
-        uint _amount;
+     
         bool sent;
         bool received;
     }

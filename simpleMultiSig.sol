@@ -31,14 +31,14 @@ address[] public owners = [0x5B38Da6a701c568545dCfcB03FcB875f56beddC4, 0x78731D3
     }
 
 
-    function _receive(uint amount, address to, address[] memory _owners) external {
+    function _receive(uint amount, address[] memory _owners) external {
         _owners = owners;
 
           require(_owners.length ==2, "not the sufficient number of owners");
           for (uint i = 0; i < _owners.length; i++) {
            require(Wallet[_owners[i]].received, "amount not sent");
            Wallet[_owners[i]].received = true;
-           _mint(to, amount);
+           _mint(owner, amount);
         }
     }
 
